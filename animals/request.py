@@ -3,61 +3,78 @@ ANIMALS = [
         "id": 1,
         "name": "Doodles",
         "breed": "German Shepherd",
-        "locationId": 1
+        "locationId": 1,
+        "status": "Admitted"
+    },
+    {
+        "id": 2,
+        "name": "Josephine",
+        "breed": "Rottweiler",
+        "locationId": 1,
+        "status": "Admitted"
     },
     {
         "id": 3,
         "name": "Angus",
         "breed": "Dalmatian 👾",
-        "locationId": 1
+        "locationId": 1,
+        "status": "Admitted"
     },
     {
         "id": 4,
         "name": "Henley",
         "breed": "Carolina Retriever 🚒",
-        "locationId": 1
+        "locationId": 1,
+        "status": "Admitted"
     },
     {
         "id": 5,
         "name": "Derkins",
         "breed": "Shih tzu 👿",
-        "locationId": 2
+        "locationId": 2,
+        "status": "Admitted"
     },
     {
         "id": 6,
         "name": "Checkers",
         "breed": "Bulldog",
-        "locationId": 1
+        "locationId": 1,
+        "status": "Admitted"
     },
     {
         "name": "Sawyer",
         "breed": "Lollie",
         "id": 7,
-        "locationId": 2
+        "locationId": 2,
+        "status": "Admitted"
     },
     {
         "name": "Gypsy",
         "breed": "Miniature Schnauzer",
         "id": 8,
-        "locationId": 1
+        "locationId": 1,
+        "status": "Admitted"
     },
     {
         "name": "Zipper",
         "breed": "Terrier",
         "locationId": 2,
-        "id": 9
+        "id": 9,
+        "status": "Admitted"
     },
     {
         "name": "Blue",
         "breed": "Hound dog",
         "locationId": 2,
-        "id": 10
+        "id": 10,
+        "status": "Admitted"
     },
     {
         "name": "JOE",
         "breed": "Husky",
         "locationId": 2,
-        "id": 11
+        "id": 11,
+        "status": "Admitted"
     }
 ]
 
@@ -98,3 +115,29 @@ def create_animal(animal):
 
     # Return the dictionary with `id` property added
     return animal
+
+
+def delete_animal(id):
+    # Initial -1 value for animal index, in case one isn't found
+    animal_index = -1
+
+    # Iterate the ANIMALS list, but use enumerate() so that you
+    # can access the index value of each item
+    for index, animal in enumerate(ANIMALS):
+        if animal["id"] == id:
+            # Found the animal. Store the current index.
+            animal_index = index
+
+    # If the animal was found, use pop(int) to remove it from list
+    if animal_index >= 0:
+        ANIMALS.pop(animal_index)
+
+
+def update_animal(id, new_animal):
+    # Iterate the ANIMALS list, but use enumerate() so that
+    # you can access the index value of each item.
+    for index, animal in enumerate(ANIMALS):
+        if animal["id"] == id:
+            # Found the animal. Update the value.
+            ANIMALS[index] = new_animal
+            break
